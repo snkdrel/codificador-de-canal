@@ -8,7 +8,7 @@ entity codigo_nrz is
 end codigo_nrz;
 
 architecture Behavioral of codigo_nrz is
-    constant secuencia_binaria : std_logic_vector(0 to 7) := "01100100"; --secuencia a codificar
+    constant secuencia_binaria : std_logic_vector(0 to 7) := "01100101"; --secuencia a codificar
     --signal s : std_logic := '0'; --valor para pasar a out_wave
     signal sb_counter : integer := 0; --contador para secuencia binaria
 begin
@@ -23,8 +23,9 @@ begin
                     out_wave <= '1';
                 end if; 
                 sb_counter <= sb_counter + 1;
+            else
+                out_wave <= '0';
             end if;
-            out_wave <= '0';
         end if;
     end process;
 
